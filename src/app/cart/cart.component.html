@@ -1,0 +1,23 @@
+<div class="col-sm-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Product List</div>
+    <div class="panel-body fixed-panel">
+      <div class='table-responsive'>
+        <table class='table'>
+          <thead class="thead-dark">
+            <tr>
+              <th>Product</th>
+              <th>Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of cartList">
+              <td>{{product.productname}}</td>
+              <td>{{product.code}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
