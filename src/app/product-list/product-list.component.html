@@ -9,7 +9,7 @@
               <th>Product</th>
               <th>Code</th>
               <th>Price</th>
-              <!-- <th>Available</th> -->
+              <th>Added</th>
               <th></th>
             </tr>
           </thead>
@@ -18,9 +18,10 @@
               <td>{{product.productname}}</td>
               <td>{{product.code}}</td>
               <td>{{product.price | currency: 'USD' :true: '1.2-2'}}</td>
-              <!-- <td>{{product.available - product.qty}}</td> -->
+              <td>{{product.qty ? product.qty : "Not Added"}}</td>
               <td>
-                <a class="btn btn-primary" (click)="addToCart(product)">Add</a>
+                <button class="btn btn-success" (click)="addToCart(product)">Add</button>
+                <button class="btn btn-info" [disabled]="!product.qty" (click)="removeFromCart(product)" style="margin-left:10px;">Remove</button>
               </td>
             </tr>
           </tbody>
@@ -28,4 +29,5 @@
       </div>
     </div>
   </div>
+  <div class="col-md-12 text-center"><button class="btn btn-success" (click) = "moveToCheckout()">Checkout</button></div>
 </div>
