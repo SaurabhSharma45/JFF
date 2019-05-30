@@ -10,6 +10,9 @@ import { BillingComponent } from 'src/app/billing/billing.component';
 import { CartComponent } from 'src/app/cart/cart.component';
 import { ProvisionComponent } from 'src/app/provision/provision.component';
 import { TopbarComponent } from 'src/app/topbar/topbar.component';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { TopbarComponent } from 'src/app/topbar/topbar.component';
     BillingComponent,
     CartComponent,
     ProvisionComponent,
-    TopbarComponent
+    TopbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ProductListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
