@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItemsService } from 'src/app/cart/cart-items.service';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/utils/auth-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   constructor(private cartItemsService: CartItemsService,
-    private router: Router) { }
+    private router: Router,
+    private authenticationService: AuthServiceService,) { }
   public productlist : any[] = [
     {
       productname : 'JBL Flip 4',
@@ -49,7 +51,10 @@ export class ProductListComponent implements OnInit {
       qty : 0
     }
   ];
-
+  role;
+  add_product_var = false;
+  product = {qty : 0, productname : '', code : '', price : 0};
+  productname;
   addToCart(item){
     item.qty = ++item.qty;
     this.cartItemsService.addToCartItmes(item);
@@ -67,10 +72,26 @@ export class ProductListComponent implements OnInit {
           }
         })
       })
-    })
+    });
+    let user = this.authenticationService.currentUserValue;
+    if(user){
+      this.role = user.role;
+    }
   }
   moveToCheckout(){
     this.router.navigate(['/billing']);
+  }
+  add_product(){
+    this.add_product_var = true;
+
+  }
+  addToList(item){
+    this.productlist.push(this.product);
+    this.product = {qty : 0, productname : '', code : '', price : 0};
+    this.add_product_var = false;
+  }
+  cancle_addToList(){
+    this.add_product_var = false;
   }
 
 }

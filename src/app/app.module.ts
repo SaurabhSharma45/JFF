@@ -12,6 +12,7 @@ import { ProvisionComponent } from 'src/app/provision/provision.component';
 import { TopbarComponent } from 'src/app/topbar/topbar.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     CartComponent,
     ProvisionComponent,
     TopbarComponent,
-    LoginComponent
+    LoginComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

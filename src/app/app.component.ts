@@ -16,7 +16,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.route = event.url;
-        if(this.route === '/login'){
+        if(this.route === '/login' || this.route === "/"){
           this.hideTopBar = true;
         }else{
           this.hideTopBar = false;

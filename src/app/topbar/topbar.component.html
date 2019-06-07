@@ -12,5 +12,11 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/provision" routerLinkActive="active">Order History</a>
       </li>
+      <li class="nav-item" *ngIf = "role === 'admin'">
+        <a class="nav-link" routerLink="/userlist" routerLinkActive="active">User List</a>
+      </li>
+      <li class="nav-item logout-button">
+        <a class="nav-link" (click) = "logout()" href="#" routerLinkActive="active">Logout</a>
+      </li>
     </ul>
   </nav>

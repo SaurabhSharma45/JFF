@@ -29,5 +29,34 @@
       </div>
     </div>
   </div>
-  <div class="col-md-12 text-center"><button class="btn btn-success" (click) = "moveToCheckout()">Checkout</button></div>
+
+  <div class="col-md-12 text-center">
+    <button class="btn btn-success" (click)="moveToCheckout()">Checkout</button>
+  </div>
+  <hr>
+  <div class="class col-md-12" *ngIf="role === 'admin'" style="margin-top:20px;">
+    <div class="col-md-12 text-center">Add Product Section</div>
+    <div class="class col-md-3" style="margin-top:20px;">
+      <button class="btn btn-success" (click)="add_product()">Add Product</button>
+    </div>
+    <div class="class col-md-12" *ngIf="add_product_var">
+      <form class="form-inline">
+        <div class="class col-md-4">
+        <label for="email">Product Name</label>
+        <input type="text" class="form-control" id="email" name = "pName" [(ngModel)] = "product.productname">
+      </div>
+      <div class="class col-md-4">
+        <label for="pwd">Code:</label>
+        <input type="text" class="form-control" id="pwd" name = "code"  [(ngModel)] = "product.code">
+      </div> <div class="class col-md-4">
+        <label for="pwd">Price:</label>
+        <input type="number" class="form-control" id="ks" name = "price"  [(ngModel)] = "product.price">
+      </div>
+      <div class="class col-md-12" style="margin-top:20px;">
+        <button type="button" class="btn btn-primary" (click) = "addToList(product)">Add</button>
+        <button type="button" class="btn btn-secondary" (click) = "cancle_addToList()" style="margin-left:10px;">Cancle</button>
+      </div>
+      </form>
+    </div>
+  </div>
 </div>
